@@ -1,0 +1,37 @@
+.hero-btn{
+  background: linear-gradient(
+    135deg,
+    #2388ff,
+    #005eff
+  );
+
+  color: white;
+
+  border: none;
+
+  padding: 18px 34px;
+
+  border-radius: 16px;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  min-width: 150px;
+
+  transition: all 0.3s ease;
+
+  box-shadow:
+    0 8px 20px rgba(0,102,255,0.25);
+
+  letter-spacing: 0.3px;
+}
+
+.hero-btn:hover{
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 12px 24px rgba(0,102,255,0.35);
+}
