@@ -7,15 +7,12 @@ const Hero = () => {
 
   <section className="flex flex-col md:flex-row items-center justify-start md:justify-center gap-6 md:gap-24 px-5 md:px-24 py-10 bg-gray-100 h-auto md:min-h-[calc(100vh-80px)] overflow-y-auto">
 
-      {/* LEFT SIDE */}
       <div className="flex flex-col items-center">
 
-        {/* HEADING */}
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-slate-800 leading-tight text-center">
           Your Health, Our Priority
         </h1>
 
-        {/* PARAGRAPH */}
         <p className="mt-6 text-lg sm:text-xl md:text-2xl text-gray-600 leading-relaxed text-center max-w-[900px]">
           Book appointments, consult doctors, and manage healthcare easily with MediGo
         </p>
