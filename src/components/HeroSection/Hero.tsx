@@ -1,6 +1,7 @@
 import "./Hero.css";
 import doctorImage from "../../assets/doctor.png";
 import HeroButton from "./HeroButton";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -20,8 +21,9 @@ const Hero = () => {
         </p>
 
         <div className="hero-buttons">
-          <HeroButton text="Get Started" />
-          <HeroButton text="Learn More" />
+          <Link to="/getstarted">
+            <HeroButton text="Get Started" />
+          </Link>
         </div>
         
 
