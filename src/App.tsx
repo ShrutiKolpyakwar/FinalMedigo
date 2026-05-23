@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import GetStarted from "./components/GetStartedComponent/GetStarted";
 import Login from "./components/LoginSection/Login";
 
-import ForgetPassword from "./components/ForgotPasswordSection/ForgetPassword";
+import ForgotPassword from "./components/ForgotPasswordSection/ForgotPassword";
 
 import Signup from "./components/SignUpSection/Signup";
 
@@ -32,7 +32,7 @@ function App() {
 
         <Route
           path="/Forgotpassword"
-          element={<ForgetPassword />}
+          element={<ForgotPassword />}
         />
 
            <Route

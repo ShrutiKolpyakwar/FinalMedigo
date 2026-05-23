@@ -1,6 +1,6 @@
-import "./Login.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import loginImage from "../../assets/login.png";
 
 const Login = () => {
 
@@ -8,46 +8,71 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e:any) => {
 
-    e.preventDefault();
+  e.preventDefault();
 
-    if(email === "" || password === ""){
+  if(email === "" || password === ""){
 
-      setError("Please fill all fields");
-      return;
-    }
+    setError("Please fill all fields");
+    return;
+  }
 
-    if(password.length < 6){
+  if(password.length < 6){
 
-      setError("Password must be at least 6 characters");
-      return;
-    }
+    setError("Password must be at least 6 characters");
+    return;
+  }
 
-    setError("");
+  const passwordRegex =
+/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
 
-    alert("Login Successful");
-  };
+if(!passwordRegex.test(password)){
 
+  setError(
+    "Password must contain uppercase, lowercase, number and special character"
+  );
+
+  return;
+}
+
+  setError("");
+
+  alert("Login Successful");
+};
   return (
 
-    <div className="login-page">
+    <div
+      className="w-full min-h-[calc(100vh-85px)] flex justify-end items-center pr-[120px] bg-cover bg-center bg-no-repeat max-lg:justify-center max-lg:p-5 max-md:pt-[120px] max-sm:min-h-screen max-sm:px-[15px] max-sm:pb-[30px]"
+      style={{
+        backgroundImage:
+          `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${loginImage})`
+      }}
+    >
 
-      <div className="login-right">
+      <div className="flex justify-end items-center w-full max-lg:justify-center">
 
-        <div className="login-card">
+        <div className="w-[420px] px-10 py-[50px] rounded-[28px] bg-[rgba(255,255,255,0.18)] backdrop-blur-[18px] border border-[rgba(255,255,255,0.25)] shadow-[0_8px_32px_rgba(0,0,0,0.25)] text-center max-lg:w-[90%] max-lg:max-w-[420px] max-lg:px-5 max-lg:py-[30px] max-sm:w-full max-sm:rounded-[25px] max-sm:px-[15px] max-sm:py-[25px]">
 
-          <h1>Welcome Back!</h1>
+          <h1 className="text-[54px] leading-[1.1] mb-[25px] font-bold text-white max-md:text-[52px] max-md:leading-[60px] max-sm:text-[42px] max-sm:leading-[48px]">
+            Welcome Back!
+          </h1>
 
-          <h2>Login</h2>
+          <h2 className="text-[30px] mb-[30px] mt-5 text-black max-md:text-[36px] max-sm:text-[30px]">
+            Login
+          </h2>
 
-          <form onSubmit={handleSubmit}>
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-[25px]"
+          >
 
             <input
               type="email"
               placeholder="Enter Email Address"
               value={email}
               onChange={(e)=>setEmail(e.target.value)}
+              className="h-[58px] border-none rounded-[14px] pl-[18px] text-[18px] outline-none bg-[rgba(255,255,255,0.92)] max-md:w-full max-md:h-[60px] max-md:text-[20px] max-sm:h-[55px] max-sm:text-[18px] max-sm:pl-[15px]"
             />
 
             <input
@@ -55,16 +80,20 @@ const Login = () => {
               placeholder="Enter Password"
               value={password}
               onChange={(e)=>setPassword(e.target.value)}
+              className="h-[58px] border-none rounded-[14px] pl-[18px] text-[18px] outline-none bg-[rgba(255,255,255,0.92)] max-md:w-full max-md:h-[60px] max-md:text-[20px] max-sm:h-[55px] max-sm:text-[18px] max-sm:pl-[15px]"
             />
 
             {error && (
 
-              <p className="error-message">
+              <p className="text-[#ff4d4d] text-[16px] font-semibold -mt-[10px]">
                 {error}
               </p>
             )}
 
-            <button type="submit">
+            <button
+              type="submit"
+              className="w-[180px] h-[62px] mx-auto border-none rounded-[14px] bg-[#081c45] text-white text-[32px] font-bold cursor-pointer transition duration-300 hover:-translate-y-[3px] hover:opacity-95 max-md:w-[220px] max-md:h-[65px] max-md:text-[22px] max-sm:w-[180px] max-sm:h-[55px] max-sm:text-[20px]"
+            >
               Login
             </button>
 
@@ -72,7 +101,7 @@ const Login = () => {
 
           <Link
             to="/forgotpassword"
-            className="forgot-password"
+            className="mt-[25px] inline-block no-underline text-white text-[18px] font-semibold max-sm:text-[20px]"
           >
             Forgot Password?
           </Link>
