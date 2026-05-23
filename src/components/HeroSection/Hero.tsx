@@ -17,14 +17,12 @@ const Hero = () => {
           Book appointments, consult doctors, and manage healthcare easily with MediGo
         </p>
 
-        {/* BUTTON */}
         <div className="mt-8 flex justify-center w-full">
           <Link to="/getstarted">
             <HeroButton text="Get Started" />
           </Link>
         </div>
 
-        {/* SERVICES BOX */}
         <div className="mt-10 bg-white p-5 md:p-6 rounded-3xl shadow-lg flex flex-col items-center self-center w-full max-w-[350px]">
 
           <h2 className="text-3xl md:text-5xl font-bold text-slate-700 mb-6 md:mb-10 text-center">
@@ -40,13 +38,12 @@ const Hero = () => {
 
       </div>
 
-       {/* RIGHT SIDE IMAGE */}
 <div className="flex justify-start md:justify-center items-center mt-6 md:mt-0 pb-10">
 
   <img
     src={doctorImage}
     alt="doctor"
-    className="w-[150px] sm:w-[220px] md:w-[400px] object-contain"
+    className="w-[150px] sm:w-[200px] md:w-[390px] object-contain"
   />
 
 </div>

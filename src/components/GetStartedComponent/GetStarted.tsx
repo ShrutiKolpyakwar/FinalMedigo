@@ -12,10 +12,9 @@ const GetStarted = () => {
       }}
     >
 
-      <div className="w-full h-full bg-black/45 flex justify-center items-center">
+      <div className="w-full h-full bg-pink/45 flex justify-center items-center">
 
-        <div className="w-[700px] p-14 rounded-[32px] text-center text-white shadow-[0_12px_35px_rgba(0,0,0,0.30)] backdrop-blur-[18px] bg-[linear-gradient(135deg,rgba(59,130,246,0.28),rgba(255,255,255,0.12))]">
-
+       <div className="w-[700px] p-14 rounded-[32px] text-center text-white shadow-[0_12px_35px_rgba(0,0,0,0.20)] backdrop-blur-[25px] border border-white/40 bg-[rgba(225, 255, 0, 0.10)] backdrop-blur-2xl">
           <h1 className="text-[63px] mb-6 leading-tight text-white drop-shadow-lg font-bold">
             Welcome to MediGo
           </h1>
