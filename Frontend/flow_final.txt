@@ -1,0 +1,52 @@
+Medigo
+│
+├── public
+│
+├── src
+│   │
+│   ├── assets
+│   │
+│   ├── components
+│   │   │
+│   │   ├── ForgotPasswordSection
+│   │   │   └── ForgotPassword.tsx
+│   │   │
+│   │   ├── GetStartedComponent
+│   │   │   └── GetStarted.tsx
+│   │   │
+│   │   ├── HeroSection
+│   │   │   ├── Hero.tsx
+│   │   │   └── HeroButton.tsx
+│   │   │
+│   │   ├── LoginSection
+│   │   │   └── Login.tsx
+│   │   │
+│   │   ├── NavbarSection
+│   │   │   ├── Navbar.tsx
+│   │   │   ├── Navbar.css
+│   │   │   ├── NavbarButton.tsx
+│   │   │   └── NavbarButton.css
+│   │   │
+│   │   └── SignUpSection
+│   │       └── Signup.tsx
+│   │
+│   ├── pages
+│   │
+│   ├── routes
+│   │
+│   ├── App.tsx
+│   ├── App.css
+│   ├── main.tsx
+│   └── index.css
+│
+├── backend
+│
+├── node_modules
+│
+├── package.json
+├── package-lock.json
+├── vite.config.ts
+├── tsconfig.json
+├── tailwind.config.js
+├── postcss.config.js
+└── index.html
