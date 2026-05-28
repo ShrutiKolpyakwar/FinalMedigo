@@ -1,9 +1,11 @@
 import Navbar from "./components/NavbarSection/Navbar";
 import Admin from "./pages/Admin";
 
+import { Toaster } from "react-hot-toast";
+
 import {
   Routes,
-  Route
+  Route,
 } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -14,105 +16,103 @@ import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import ShopOwnerDashboard from "./pages/ShopOwnerDashboard";
 import ProtectedRoute from "./components/ProtectedRoutesSection/ProtectedRoute";
-import ForgotPassword from "./components/ForgotPasswordSection/ForgotPassword";
 
 function App() {
 
   return (
 
-    <Routes>
+    <>
 
-      {/* Home */}
-      <Route
-        path="/"
-        element={
-          <>
-            <Navbar />
-            <Home />
-          </>
-        }
-      />
+      <Toaster position="top-right" />
 
-      {/* Login */}
-      <Route
-        path="/login"
-        element={
-          <>
-            <Navbar />
-            <Login />
-          </>
-        }
-      />
+      <Routes>
 
-      {/* Signup */}
-      <Route
-        path="/signup"
-        element={
-          <>
-            <Navbar />
-            <Signup />
-          </>
-        }
-      />
-      
-       {/* Get Started*/}
+        {/* HOME */}
         <Route
-        path="/getstarted"
-        element={
-          <>
-            <Navbar />
-            <GetStarted />
-          </>
-        }
-      />
+          path="/"
+          element={
+            <>
+              <Navbar />
+              <Home />
+            </>
+          }
+        />
 
-      {/* Fporgot Password*/}
+        {/* LOGIN */}
         <Route
-        path="/forgotpassword"
-        element={
-          <>
-            <Navbar />
-            <ForgotPassword />
-          </>
-        }
-      />
+          path="/login"
+          element={
+            <>
+              <Navbar />
+              <Login />
+            </>
+          }
+        />
 
-      <Route
-  path="/admin-login"
-  element={<Admin />}
-/>
+        {/* SIGNUP */}
+        <Route
+          path="/signup"
+          element={
+            <>
+              <Navbar />
+              <Signup />
+            </>
+          }
+        />
 
-     {/* Protected User Dashboard */}
-<Route
-  path="/dashboard"
-  element={
-    <ProtectedRoute allowedRole="user">
-      <Dashboard />
-    </ProtectedRoute>
-  }
-/>
+        {/* GET STARTED */}
+        <Route
+          path="/getstarted"
+          element={
+            <>
+              <Navbar />
+              <GetStarted />
+            </>
+          }
+        />
 
-{/* Protected Admin Dashboard */}
-<Route
-  path="/admin-dashboard"
-  element={
-    <ProtectedRoute allowedRole="admin">
-      <AdminDashboard />
-    </ProtectedRoute>
-  }
-/>
-     {/* Protected Shop Dashboard */}
-<Route
-  path="/shop-dashboard"
-  element={
-    <ProtectedRoute allowedRole="shopowner">
-      <ShopOwnerDashboard />
-    </ProtectedRoute>
-  }
-/>
-    </Routes>
+        {/* ADMIN LOGIN */}
+        <Route
+          path="/admin-login"
+          element={<Admin />}
+        />
+
+        {/* USER DASHBOARD */}
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute allowedRole="user">
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* ADMIN DASHBOARD */}
+        <Route
+          path="/admin-dashboard"
+          element={
+            <ProtectedRoute allowedRole="admin">
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* SHOP DASHBOARD */}
+        <Route
+          path="/shop-dashboard"
+          element={
+            <ProtectedRoute allowedRole="shopowner">
+              <ShopOwnerDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+      </Routes>
+
+    </>
 
   );
+
 }
 
 export default App;

@@ -1,12 +1,19 @@
 require("dotenv").config();
+
 const express = require("express");
+
 const dotenv = require("dotenv");
+
 const cors = require("cors");
+
 const path = require("path");
+
 const app = express();
+
 const connectDB = require("./config/db");
-app.use(express.static(path.join(__dirname, "../Frontend/dist")));
+
 dotenv.config();
+
 
 // CORS
 app.use(cors());
@@ -20,29 +27,64 @@ app.use(express.json());
 connectDB();
 
 
+// Static Folder
+app.use(
+  express.static(
+    path.join(
+      __dirname,
+      "../Frontend/dist"
+    )
+  )
+);
+
+
 // Routes
-const authRoutes = require("./routes/authRoutes");
+const authRoutes =
+  require("./routes/authRoutes");
 
-app.use("/api", authRoutes);
+app.use(
+  "/api",
+  authRoutes
+);
 
-app.use(express.static(path.join(__dirname, "../Frontend/dist")));
 
-// app.get("/{*any}", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../Frontend/dist/index.html"));
-// });
-
-app.get("/*splat", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "../Frontend/dist/index.html")
-  );
-});
+// HOME ROUTE
 app.get("/", (req, res) => {
-  res.send("API Running");
+
+  res.sendFile(
+    path.join(
+      __dirname,
+      "../Frontend/dist/index.html"
+    )
+  );
+
 });
 
 
-const PORT = process.env.PORT || 5000;
+// REACT ROUTES
+app.get(
+  /^\/(?!api).*/,
+  (req, res) => {
+
+    res.sendFile(
+      path.join(
+        __dirname,
+        "../Frontend/dist/index.html"
+      )
+    );
+
+  }
+);
+
+
+const PORT =
+  process.env.PORT || 5000;
+
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+
+  console.log(
+    `Server running on port ${PORT}`
+  );
+
 });

@@ -1,17 +1,16 @@
 {
   "name": "medigo",
   "version": "1.0.0",
-
   "scripts": {
-
     "frontend": "cd Frontend && npm run dev",
-
     "backend": "cd backend && npm start",
-
     "dev": "concurrently \"npm run frontend\" \"npm run backend\"",
-
     "build": "cd Frontend && npm install && npm run build",
-
     "start": "npm run build && cd backend && node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "nodemailer": "^8.0.9",
+    "react-hot-toast": "^2.6.0"
   }
 }

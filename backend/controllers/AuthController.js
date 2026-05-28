@@ -1,29 +1,82 @@
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-
-
+const nodemailer = require("nodemailer");
 // SIGNUP
 exports.signup = async (req, res) => {
-
+console.log("VALIDATION CODE RUNNING");
   try {
 
     const { name, email, password, role } = req.body;
 
-    // Check existing user
-    const userExists = await User.findOne({ email });
+    let errors = [];
+
+    // NAME VALIDATION
+    if (!name || name.length < 3) {
+
+      errors.push({
+        field: "name",
+        message: "Name must be at least 3 characters",
+      });
+
+    }
+
+    // EMAIL VALIDATION
+    const emailRegex =
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+
+      errors.push({
+        field: "email",
+        message: "Invalid email format",
+      });
+
+    }
+
+    // PASSWORD VALIDATION
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])/;
+
+    if (!passwordRegex.test(password)) {
+
+      errors.push({
+        field: "password",
+        message:
+          "Password must contain uppercase, lowercase, number and special character",
+      });
+
+    }
+
+    // IF ERRORS
+    if (errors.length > 0) {
+
+      return res.status(400).json({
+        success: false,
+        errors,
+      });
+
+    }
+
+    // CHECK USER
+    const userExists = await User.findOne({
+      email,
+    });
 
     if (userExists) {
 
       return res.status(400).json({
+        success: false,
         message: "User already exists",
       });
+
     }
 
-    // Hash password
-    const hashedPassword = await bcrypt.hash(password, 10);
+    // HASH PASSWORD
+    const hashedPassword =
+      await bcrypt.hash(password, 10);
 
-    // Create user
+    // CREATE USER
     const user = await User.create({
       name,
       email,
@@ -32,18 +85,22 @@ exports.signup = async (req, res) => {
     });
 
     res.status(201).json({
+      success: true,
       message: "User Registered Successfully",
       user,
     });
 
   } catch (error) {
 
-    console.log("Signup Error:", error);
+    console.log(error);
 
     res.status(500).json({
-      error: error.message,
+      success: false,
+      message: error.message,
     });
+
   }
+
 };
 
 exports.adminLogin = async (req, res) => {

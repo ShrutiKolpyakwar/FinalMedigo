@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
+import toast from "react-hot-toast";
 import { adminLogin } from "../api/authApi";
 
 const Admin = () => {
@@ -47,7 +47,9 @@ const Admin = () => {
         "Admin"
       );
 
-      alert("Admin Login Successful");
+        toast.success(
+         "Admin Login Successful"
+      );
         localStorage.setItem(
   "token",
   "admin_token"

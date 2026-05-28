@@ -1,8 +1,7 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
 import loginImage from "../../assets/login.png";
-
+import toast from "react-hot-toast";
 import { loginUser } from "../../api/authApi";
 
 const Login = () => {
@@ -86,7 +85,9 @@ const Login = () => {
         response.data.user.name
       );
 
-      alert("Login Successful");
+     toast.success(
+  "Login Successful"
+);
 
       // Get Role
       const role =
@@ -94,23 +95,23 @@ const Login = () => {
 
       console.log("ROLE:", role);
 
-      if (role === "admin") {
+     if (role === "admin") {
 
-        navigate("/admin-dashboard");
+  navigate("/admin-dashboard");
 
-      }
-      else if (
-        role === "shopowner"
-      ) {
+}
+else if (
+  role === "shopowner"
+) {
 
-        navigate("/shop-dashboard");
+  navigate("/shop-dashboard");
 
-      }
-      else if (role === "user") {
+}
+else if (role === "user") {
 
-        navigate("/dashboard");
+  navigate("/dashboard");
 
-      }
+}
       else {
 
         console.log("Role Not Found");
@@ -128,10 +129,9 @@ const Login = () => {
         error
       );
 
-      setError(
-        "Invalid Email or Password"
-      );
-
+         toast.error(
+  "Invalid Email or Password"
+);
     }
 
   };
@@ -199,13 +199,6 @@ const Login = () => {
             </button>
 
           </form>
-
-          <Link
-            to="/forgotpassword"
-            className="mt-[25px] inline-block no-underline text-white text-[18px] font-semibold max-sm:text-[20px]"
-          >
-            Forgot Password?
-          </Link>
 
         </div>
 
