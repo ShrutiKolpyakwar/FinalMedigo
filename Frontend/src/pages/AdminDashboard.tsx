@@ -1,261 +1,294 @@
 import AdminImage from "../assets/admin.png";
+
 import { useEffect } from "react";
+
 import toast from "react-hot-toast";
+
+import {
+  FiGrid,
+  FiUsers,
+  FiCalendar,
+  FiFileText,
+  FiPackage,
+  FiLogOut,
+} from "react-icons/fi";
+
 const AdminDashboard = () => {
-   useEffect(() => {
-     
-       // CREATE 10 HISTORY STATES
-       for (let i = 0; i < 100; i++) {
-     
-         window.history.pushState(
-           null,
-           "",
-           window.location.href
-         );
-     
-       }
-     }, []);
+
+  useEffect(() => {
+
+    for (let i = 0; i < 100; i++) {
+
+      window.history.pushState(
+        null,
+        "",
+        window.location.href
+      );
+
+    }
+
+  }, []);
+
   return (
-    <div className="w-full h-screen bg-[#edf2ff] flex flex-col lg:flex-row lg:overflow-hidden overflow-y-scroll overflow-x-hidden">
+
+    <div className="min-h-screen bg-[#f8fafc] flex overflow-hidden">
 
       {/* SIDEBAR */}
-      <div className="w-full lg:w-[260px] bg-[#071b52] text-white flex flex-col justify-between px-5 py-6 lg:min-h-screen">
+      <div className="w-[82px] sm:w-[250px] bg-[#0f172a] flex flex-col items-center py-4 sm:py-7 px-2 pb-8 shrink-0">
 
-        <div>
+        {/* PROFILE */}
+        <div className="flex flex-col items-center">
 
-          {/* PROFILE */}
-          <div className="flex flex-col items-center">
+          <img
+            src={AdminImage}
+            alt="admin"
+            className="w-14 h-14 sm:w-24 sm:h-24 rounded-full border-4 border-blue-500 object-cover"
+          />
 
-            <img
-              src={AdminImage}
-              alt="admin"
-              className="w-16 h-16 sm:w-24 sm:h-24 rounded-full object-cover border-4 border-orange-400"
-            />
+          <h1 className="hidden sm:block text-white text-3xl font-bold mt-4">
+            Admin
+          </h1>
 
-            <h1 className="text-[30px] font-bold mt-4">
-              Admin
-            </h1>
+          <p className="hidden sm:block text-slate-300 text-base mt-1">
+            Hospital Admin
+          </p>
 
-            <p className="text-slate-300 text-[16px]">
-              Hospital Admin
-            </p>
+        </div>
 
-          </div>
+        {/* MENU */}
+        <div className="w-full mt-8 sm:mt-10 flex flex-col gap-4">
 
-          {/* MENU */}
-          <div className="mt-10 flex flex-col gap-4">
+          {/* DASHBOARD */}
+          <button className="w-[90%] mx-auto h-[46px] rounded-xl bg-blue-600 text-white flex items-center justify-center sm:justify-start gap-3 sm:px-5 font-semibold text-[15px]">
 
-            <button className="w-full h-[52px] bg-cyan-500 rounded-xl text-left px-5 font-semibold text-[17px]">
+            <FiGrid size={18} />
+
+            <span className="hidden sm:block">
               Dashboard
-            </button>
+            </span>
 
-            <button className="w-full h-[52px] hover:bg-[#102865] rounded-xl text-left px-5 font-semibold text-[17px] transition-all">
+          </button>
+
+          {/* DOCTORS */}
+          <button className="w-[90%] mx-auto h-[46px] rounded-xl bg-[#1e293b] text-[#38bdf8] flex items-center justify-center sm:justify-start gap-3 sm:px-5 font-semibold text-[15px]">
+
+            <FiUsers size={18} />
+
+            <span className="hidden sm:block">
               Doctors
-            </button>
+            </span>
 
-            <button className="w-full h-[52px] hover:bg-[#102865] rounded-xl text-left px-5 font-semibold text-[17px] transition-all">
+          </button>
+
+          {/* PATIENTS */}
+          <button className="w-[90%] mx-auto h-[46px] rounded-xl bg-[#1e293b] text-[#22c55e] flex items-center justify-center sm:justify-start gap-3 sm:px-5 font-semibold text-[15px]">
+
+            <FiUsers size={18} />
+
+            <span className="hidden sm:block">
               Patients
-            </button>
+            </span>
 
-            <button className="w-full h-[52px] hover:bg-[#102865] rounded-xl text-left px-5 font-semibold text-[17px] transition-all">
+          </button>
+
+          {/* APPOINTMENTS */}
+          <button className="w-[90%] mx-auto h-[46px] rounded-xl bg-[#1e293b] text-[#f59e0b] flex items-center justify-center sm:justify-start gap-3 sm:px-5 font-semibold text-[15px]">
+
+            <FiCalendar size={18} />
+
+            <span className="hidden sm:block">
               Appointments
-            </button>
+            </span>
 
-            <button className="w-full h-[52px] hover:bg-[#102865] rounded-xl text-left px-5 font-semibold text-[17px] transition-all">
+          </button>
+
+          {/* REPORTS */}
+          <button className="w-[90%] mx-auto h-[46px] rounded-xl bg-[#1e293b] text-[#8b5cf6] flex items-center justify-center sm:justify-start gap-3 sm:px-5 font-semibold text-[15px]">
+
+            <FiFileText size={18} />
+
+            <span className="hidden sm:block">
               Reports
-            </button>
+            </span>
 
-            <button className="w-full h-[52px] hover:bg-[#102865] rounded-xl text-left px-5 font-semibold text-[17px] transition-all">
+          </button>
+
+          {/* MEDICINES */}
+          <button className="w-[90%] mx-auto h-[46px] rounded-xl bg-[#1e293b] text-[#06b6d4] flex items-center justify-center sm:justify-start gap-3 sm:px-5 font-semibold text-[15px]">
+
+            <FiPackage size={18} />
+
+            <span className="hidden sm:block">
               Medicines
-            </button>
+            </span>
 
-          </div>
+          </button>
 
         </div>
 
         {/* LOGOUT */}
         <button
-  onClick={() => {
+          onClick={() => {
 
-    toast.success(
-      "Admin Logout Successful"
-    );
+            toast.success(
+              "Admin Logout Successful"
+            );
 
-    localStorage.clear();
+            localStorage.clear();
 
-    setTimeout(() => {
+            setTimeout(() => {
 
-      window.location.href = "/login";
+              window.location.href = "/login";
 
-    }, 1000);
+            }, 1000);
 
-  }}
-          className="w-full h-[55px] bg-red-500 hover:bg-red-600 rounded-xl font-bold text-[18px] transition-all mt-10"
+          }}
+className="w-[90%] mx-auto h-[46px] rounded-xl bg-red-500 text-white flex items-center justify-center gap-3 font-semibold text-[15px] mt-auto mb-3"          
         >
-          Logout
+
+          <FiLogOut size={18} />
+
+          <span className="hidden sm:block">
+            Logout
+          </span>
+
         </button>
 
       </div>
 
-      {/* RIGHT SIDE */}
-     <div className="flex-1 p-5 lg:overflow-hidden overflow-visible">
+      {/* MAIN CONTENT */}
+      <div className="flex-1 p-3 sm:p-7 h-screen overflow-y-scroll sm:overflow-hidden">
 
-        {/* TOP BOX */}
-        <div className="w-full rounded-[30px] bg-gradient-to-r from-blue-700 to-cyan-500 flex flex-col lg:flex-row items-center justify-between px-5 lg:px-10 py-6 shadow-xl relative gap-5 overflow-hidden">
+        {/* TOP CARD */}
+         <div className="bg-white rounded-[24px] shadow-sm p-4 sm:p-8 overflow-hidden">
 
-          {/* LEFT */}
-          <div className="w-full">
+          <h1 className="text-[24px] sm:text-[40px] lg:text-[48px] font-bold text-slate-900 leading-tight break-words">
 
-            <h1 className="text-white text-[30px] sm:text-[40px] lg:text-[48px] font-extrabold mt-2 text-center lg:text-left">
-              Admin Dashboard
-            </h1>
+            Admin Dashboard
 
-            <p className="text-cyan-100 text-[15px] sm:text-[18px] mt-2 text-center lg:text-left">
-              Manage hospital records and activities
-            </p>
+          </h1>
 
-            {/* SMALL CARDS */}
-            <div className="relative lg:absolute lg:right-[270px] lg:bottom-5 flex gap-3 sm:gap-5 mt-5 justify-center flex-wrap">
+          <p className="text-slate-500 text-[15px] sm:text-[18px] mt-4 leading-7 max-w-[700px]">
 
-              <div className="w-[120px] h-[70px] rounded-2xl bg-white/20 backdrop-blur-md flex flex-col justify-center items-center">
+            Manage hospital records, appointments
+            and reports from one clean dashboard.
 
-                <h1 className="text-white text-[28px] font-bold">
-                  35
-                </h1>
-
-                <p className="text-white text-[15px]">
-                  Doctors
-                </p>
-
-              </div>
-
-              <div className="w-[120px] h-[70px] rounded-2xl bg-white/20 backdrop-blur-md flex flex-col justify-center items-center">
-
-                <h1 className="text-white text-[28px] font-bold">
-                  48
-                </h1>
-
-                <p className="text-white text-[15px]">
-                  Reports
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-          {/* IMAGE */}
-          <div className="flex items-center justify-center gap-6 w-full lg:w-auto">
-
-            <div className="bg-white/20 backdrop-blur-md rounded-3xl p-3 sm:p-5">
-
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/2785/2785482.png"
-                alt="doctor"
-                className="w-[120px] h-[120px] sm:w-[160px] sm:h-[160px] lg:w-[180px] lg:h-[180px] object-contain"
-              />
-
-            </div>
-
-          </div>
+          </p>
 
         </div>
 
-        {/* CARDS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+        {/* STATS */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-7">
 
-          <div className="bg-white rounded-[25px] p-5 shadow-md min-h-[135px] flex flex-col justify-center">
+          {/* CARD */}
+          <div className="bg-[#eff6ff] rounded-[24px] p-6 shadow-sm">
 
-            <div className="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center text-3xl mx-auto">
-              👨‍⚕️
-            </div>
-
-            <h1 className="text-[34px] font-bold text-slate-800 mt-4 text-center">
-              800
-            </h1>
-
-            <p className="text-slate-500 text-[16px] text-center">
+            <p className="text-[#2563eb] text-[18px] font-semibold">
               Patients
             </p>
 
-          </div>
-
-          <div className="bg-white rounded-[25px] p-5 shadow-md min-h-[135px] flex flex-col justify-center">
-
-            <div className="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center text-3xl mx-auto">
-              🩺
-            </div>
-
-            <h1 className="text-[34px] font-bold text-slate-800 mt-4 text-center">
-              350
+            <h1 className="text-5xl font-bold text-slate-900 mt-5">
+              800
             </h1>
 
-            <p className="text-slate-500 text-[16px] text-center">
+          </div>
+
+          {/* CARD */}
+          <div className="bg-[#f0fdf4] rounded-[24px] p-6 shadow-sm">
+
+            <p className="text-[#16a34a] text-[18px] font-semibold">
               Doctors
             </p>
 
-          </div>
-
-          <div className="bg-white rounded-[25px] p-5 shadow-md min-h-[135px] flex flex-col justify-center">
-
-            <div className="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center text-3xl mx-auto">
-              📄
-            </div>
-
-            <h1 className="text-[34px] font-bold text-slate-800 mt-4 text-center">
-              980
+            <h1 className="text-5xl font-bold text-slate-900 mt-5">
+              350
             </h1>
 
-            <p className="text-slate-500 text-[16px] text-center">
+          </div>
+
+          {/* CARD */}
+          <div className="bg-[#faf5ff] rounded-[24px] p-6 shadow-sm">
+
+            <p className="text-[#9333ea] text-[18px] font-semibold">
               Reports
             </p>
 
-          </div>
-
-          <div className="bg-white rounded-[25px] p-5 shadow-md min-h-[135px] flex flex-col justify-center">
-
-            <div className="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center text-3xl mx-auto">
-              💰
-            </div>
-
-            <h1 className="text-[34px] font-bold text-slate-800 mt-4 text-center">
-              ₹98K
+            <h1 className="text-5xl font-bold text-slate-900 mt-5">
+              980
             </h1>
 
-            <p className="text-slate-500 text-[16px] text-center">
+          </div>
+
+          {/* CARD */}
+          <div className="bg-[#fef3c7] rounded-[24px] p-6 shadow-sm">
+
+            <p className="text-[#d97706] text-[18px] font-semibold">
               Revenue
             </p>
+
+            <h1 className="text-5xl font-bold text-slate-900 mt-5">
+              ₹98K
+            </h1>
 
           </div>
 
         </div>
 
-        {/* CENTER BOX */}
-        <div className="w-full flex justify-center mt-6 mb-6">
+        {/* APPOINTMENTS BOX */}
+        <div className="flex justify-center mt-8 mb-6">
 
-          <div className="w-full lg:w-[550px] bg-white rounded-[25px] p-4 sm:p-5 shadow-md">
+          <div className="w-full max-w-[700px] bg-white rounded-[26px] p-6 sm:p-8 shadow-sm">
 
-            <h1 className="text-[28px] sm:text-[40px] lg:text-[50px] font-bold text-slate-800 text-center">
+            <h1 className="text-3xl sm:text-4xl font-bold text-center text-slate-900">
+
               Recent Appointments
+
             </h1>
 
-            <div className="mt-5 flex flex-col gap-4">
+            <div className="space-y-6 mt-10">
 
-              <div className="w-full min-h-[60px] rounded-xl bg-slate-100 flex items-center justify-between px-3 sm:px-5 py-3 gap-3">
+              {/* APPOINTMENT */}
+              <div className="flex justify-between items-center border-b border-slate-100 pb-5">
 
                 <div>
-                  <h1 className="font-bold text-[18px]">
+
+                  <h1 className="text-lg sm:text-xl font-semibold text-slate-800">
                     Rahul Sharma
                   </h1>
 
-                  <p className="text-slate-500 text-[16px]">
+                  <p className="text-slate-500 mt-1">
                     Heart Checkup
                   </p>
+
                 </div>
 
-                <button className="bg-cyan-500 text-white px-5 py-2 rounded-lg">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl text-sm font-semibold transition-all">
+
                   View
+
+                </button>
+
+              </div>
+
+              {/* APPOINTMENT */}
+              <div className="flex justify-between items-center border-b border-slate-100 pb-5">
+
+                <div>
+
+                  <h1 className="text-lg sm:text-xl font-semibold text-slate-800">
+                    Priya Mehta
+                  </h1>
+
+                  <p className="text-slate-500 mt-1">
+                    Dental Checkup
+                  </p>
+
+                </div>
+
+                <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl text-sm font-semibold transition-all">
+
+                  View
+
                 </button>
 
               </div>
@@ -269,7 +302,9 @@ const AdminDashboard = () => {
       </div>
 
     </div>
+
   );
+
 };
 
 export default AdminDashboard;

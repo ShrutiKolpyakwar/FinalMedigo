@@ -1,401 +1,263 @@
 import ownerImage from "../assets/owner.png";
-import { useEffect } from "react";
+
 import toast from "react-hot-toast";
+
+import {
+  FiGrid,
+  FiPackage,
+  FiShoppingCart,
+  FiUsers,
+  FiSettings,
+  FiLogOut,
+} from "react-icons/fi";
+
 const ShopOwnerDashboard = () => {
 
   const ownerName =
-    localStorage.getItem("userName") || "Shruti";
-      useEffect(() => {
-     
-       // CREATE 10 HISTORY STATES
-       for (let i = 0; i < 100; i++) {
-     
-         window.history.pushState(
-           null,
-           "",
-           window.location.href
-         );
-     
-       }
-     }, []);
+    localStorage.getItem("userName") || "Rohit";
+
   return (
-               <div className="h-screen bg-[#f4f6fb] flex overflow-hidden">
+
+    <div className="min-h-screen h-screen bg-[#f1f5f9] flex overflow-hidden">
 
       {/* SIDEBAR */}
-      <div className="w-[78px] sm:w-[250px] bg-white shadow-md flex flex-col justify-between px-2 sm:px-6 py-6 rounded-r-[35px]">
+      <div className="w-[80px] sm:w-[230px] bg-[#0f172a] flex flex-col items-center py-4 sm:py-7 px-2 pb-8">
 
-        <div>
+        {/* TOP */}
+        <div className="w-full flex flex-col items-center">
 
-          {/* PROFILE */}
-          <div className="flex flex-col items-center">
-
-            <img
-              src={ownerImage}
-              alt="owner"
-              className="w-16 h-16 sm:w-24 sm:h-24 rounded-full object-cover border-4 border-orange-400"
-            />
-
-            <h1 className="hidden sm:block text-3xl font-extrabold text-slate-900 mt-4 text-center break-words">
-              {ownerName}
-            </h1>
-
-            <p className="hidden sm:block text-slate-500 text-lg mt-1">
-              Shop Owner
-            </p>
-
-          </div>
-
-          {/* MENU */}
-          <div className="mt-8 space-y-3">
-
-            <button className="w-full bg-orange-500 text-white py-3 rounded-2xl text-[11px] sm:text-lg font-bold">
-              Dashboard
-            </button>
-
-            <button className="w-full hover:bg-orange-50 py-3 rounded-2xl text-[11px] sm:text-lg font-semibold text-slate-700 transition">
-              Medicines
-            </button>
-
-            <button className="w-full hover:bg-orange-50 py-3 rounded-2xl text-[11px] sm:text-lg font-semibold text-slate-700 transition">
-              Orders
-            </button>
-
-            <button className="w-full hover:bg-orange-50 py-3 rounded-2xl text-[11px] sm:text-lg font-semibold text-slate-700 transition">
-              Customers
-            </button>
-
-            <button className="w-full hover:bg-orange-50 py-3 rounded-2xl text-[11px] sm:text-lg font-semibold text-slate-700 transition">
-              Revenue
-            </button>
-
-            <button className="w-full hover:bg-orange-50 py-3 rounded-2xl text-[11px] sm:text-lg font-semibold text-slate-700 transition">
-              Reports
-            </button>
-
-            <button className="w-full hover:bg-orange-50 py-3 rounded-2xl text-[11px] sm:text-lg font-semibold text-slate-700 transition">
-              Settings
-            </button>
-
-          </div>
-
-        </div>
-
-      <button
-  onClick={() => {
-
-    toast.success(
-      "Logout Successful"
-    );
-
-    localStorage.clear();
-
-    setTimeout(() => {
-
-      window.location.href = "/login";
-
-    }, 1000);
-
-  }}
-  className="bg-red-500 hover:bg-red-600 text-white px-1 sm:px-6 py-3 rounded-2xl font-bold transition-all mb-10 mx-auto"
->
-  Logout
-</button>
-      </div>
-
-      {/* MAIN CONTENT */}
-      
-      <div className="flex-1 p-3 lg:p-6 overflow-y-scroll lg:overflow-y-hidden h-screen">
-
-        {/* TOP BAR */}
-        <div className="bg-white rounded-[30px] shadow-md min-h-[90px] flex flex-col lg:flex-row items-center justify-between px-4 lg:px-8 py-5 gap-4">
-
-          <div className="text-center lg:text-left">
-
-            <h1 className="text-3xl lg:text-5xl font-extrabold text-slate-900 break-words">
-              Welcome {ownerName} 👋
-            </h1>
-
-          </div>
-
-          <input
-            type="text"
-            placeholder="Search medicines, orders..."
-            className="w-full lg:w-[320px] h-[50px] bg-[#f4f6fb] rounded-2xl px-5 outline-none text-base lg:text-lg"
+          {/* IMAGE */}
+          <img
+            src={ownerImage}
+            alt="owner"
+            className="w-14 h-14 sm:w-24 sm:h-24 rounded-full border-4 border-blue-500 object-cover"
           />
 
-        </div>
+          {/* NAME */}
+          <h1 className="hidden sm:block text-white text-3xl font-bold mt-4">
+            {ownerName}
+          </h1>
 
-        {/* TOP CARDS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
+          <p className="hidden sm:block text-slate-300 text-base mt-1">
+            Shop Owner
+          </p>
 
-          <div className="bg-white rounded-[28px] shadow-md p-5 min-h-[150px]">
+          {/* MENU */}
+          <div className="w-full mt-8 flex flex-col gap-4">
 
-            <div className="flex justify-between items-start">
+            {/* DASHBOARD */}
+           <button className="w-[80%] mx-auto h-[52px] rounded-xl bg-[#1e293b] text-[#38bdf8] flex items-center justify-center sm:justify-start gap-3 sm:px-5 font-semibold text-[16px]">
+              <FiGrid size={20} />
 
-              <div>
+              <span className="hidden sm:block">
+                Dashboard
+              </span>
 
-                <h2 className="text-slate-500 text-lg font-semibold">
-                  Medicines
-                </h2>
+            </button>
 
-                <h1 className="text-5xl font-extrabold text-slate-900 mt-4">
-                  520
-                </h1>
+            {/* MEDICINES */}
+            <button className="w-[80%] mx-auto h-[52px] rounded-xl bg-[#1e293b] text-[#38bdf8] flex items-center justify-center sm:justify-start gap-3 sm:px-5 font-semibold text-[16px]">
 
-              </div>
+              <FiPackage size={20} />
 
-              <div className="w-16 h-16 rounded-2xl bg-orange-100 flex items-center justify-center text-3xl">
-                💊
-              </div>
+              <span className="hidden sm:block">
+                Medicines
+              </span>
 
-            </div>
+            </button>
 
-          </div>
+            {/* ORDERS */}
+            <button className="w-[80%] mx-auto h-[52px] rounded-xl bg-[#1e293b] text-[#8b5cf6] flex items-center justify-center sm:justify-start gap-3 sm:px-5 font-semibold text-[16px]">
 
-          <div className="bg-white rounded-[28px] shadow-md p-5 min-h-[150px]">
+              <FiShoppingCart size={20} />
 
-            <div className="flex justify-between items-start">
+              <span className="hidden sm:block">
+                Orders
+              </span>
 
-              <div>
+            </button>
 
-                <h2 className="text-slate-500 text-lg font-semibold">
-                  Orders
-                </h2>
+            {/* CUSTOMERS */}
+            <button className="w-[80%] mx-auto h-[52px] rounded-xl bg-[#1e293b] text-[#14b8a6] flex items-center justify-center sm:justify-start gap-3 sm:px-5 font-semibold text-[16px]">
 
-                <h1 className="text-5xl font-extrabold text-slate-900 mt-4">
-                  145
-                </h1>
+              <FiUsers size={20} />
 
-              </div>
+              <span className="hidden sm:block">
+                Customers
+              </span>
 
-              <div className="w-16 h-16 rounded-2xl bg-green-100 flex items-center justify-center text-3xl">
-                🛒
-              </div>
+            </button>
 
-            </div>
+            {/* SETTINGS */}
+            <button className="w-[80%] mx-auto h-[52px] rounded-xl bg-[#1e293b] text-[#f59e0b] flex items-center justify-center sm:justify-start gap-3 sm:px-5 font-semibold text-[16px]">
 
-          </div>
+              <FiSettings size={20} />
 
-          <div className="bg-white rounded-[28px] shadow-md p-5 min-h-[150px]">
+              <span className="hidden sm:block">
+                Settings
+              </span>
 
-            <div className="flex justify-between items-start">
-
-              <div>
-
-                <h2 className="text-slate-500 text-lg font-semibold">
-                  Revenue
-                </h2>
-
-                <h1 className="text-4xl font-extrabold text-slate-900 mt-4">
-                  ₹85K
-                </h1>
-
-              </div>
-
-              <div className="w-16 h-16 rounded-2xl bg-pink-100 flex items-center justify-center text-3xl">
-                💰
-              </div>
-
-            </div>
-
-          </div>
-
-          <div className="bg-white rounded-[28px] shadow-md p-5 min-h-[150px]">
-
-            <div className="flex justify-between items-start">
-
-              <div>
-
-                <h2 className="text-slate-500 text-lg font-semibold">
-                  Customers
-                </h2>
-
-                <h1 className="text-5xl font-extrabold text-slate-900 mt-4">
-                  530
-                </h1>
-
-              </div>
-
-              <div className="w-16 h-16 rounded-2xl bg-cyan-100 flex items-center justify-center text-3xl">
-                👥
-              </div>
-
-            </div>
+            </button>
 
           </div>
 
         </div>
 
-        {/* LOWER SECTION */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5">
+        {/* LOGOUT */}
+        <button
+          onClick={() => {
 
-          {/* LEFT */}
-          <div className="lg:col-span-2 bg-white rounded-[30px] shadow-md p-6">
+            toast.success(
+              "Logout Successful"
+            );
 
-            <div className="flex justify-between items-center">
+            localStorage.clear();
 
-              <h1 className="text-2xl lg:text-3xl font-extrabold text-slate-900">
-                Medicine Stock
-              </h1>
+            setTimeout(() => {
 
-              <button className="bg-orange-500 text-white px-5 py-2 rounded-xl font-bold">
-                View All
-              </button>
+              window.location.href = "/login";
 
-            </div>
+            }, 1000);
 
-            {/* MEDICINE GRID */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+          }}
+         className="w-[80%] mx-auto h-[50px] rounded-xl bg-red-500 text-white flex items-center justify-center gap-3 font-semibold text-[16px] mt-10 mb-4 sm:mt-auto"
+        >
 
-              <div className="bg-[#f4f6fb] rounded-2xl p-4 text-center">
+          <FiLogOut size={20} />
 
-                <div className="text-5xl">
-                  💊
-                </div>
+          <span className="hidden sm:block">
+            Logout
+          </span>
 
-                <h2 className="text-2xl font-bold mt-3">
-                  Paracetamol
-                </h2>
+        </button>
 
-                <p className="text-slate-500 mt-1">
-                  Stock: 220
-                </p>
+      </div>
 
-              </div>
+      <div className="flex-1 p-3 sm:p-7 h-screen overflow-y-scroll sm:overflow-hidden">
 
-              <div className="bg-[#f4f6fb] rounded-2xl p-4 text-center">
+        {/* TOP CARD */}
+        <div className="bg-white rounded-[24px] shadow-sm p-5 sm:p-8">
 
-                <div className="text-5xl">
-                  🩺
-                </div>
+          <h1 className="text-[30px] sm:text-[48px] font-bold text-slate-900">
 
-                <h2 className="text-2xl font-bold mt-3">
-                  Syrup
-                </h2>
+            Welcome {ownerName}
 
-                <p className="text-slate-500 mt-1">
-                  Stock: 180
-                </p>
+          </h1>
 
-              </div>
+          <p className="text-slate-500 text-[15px] sm:text-[18px] mt-4 leading-7 max-w-[700px]">
 
-              <div className="bg-[#f4f6fb] rounded-2xl p-4 text-center">
+            Manage medicines, customer orders and
+            revenue from one simple and clean dashboard.
 
-                <div className="text-5xl">
-                  💉
-                </div>
+          </p>
 
-                <h2 className="text-2xl font-bold mt-3">
-                  Injection
-                </h2>
+        </div>
 
-                <p className="text-slate-500 mt-1">
-                  Stock: 95
-                </p>
+        {/* CARDS */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-7">
 
-              </div>
+          {/* CARD */}
+          <div className="bg-[#eff6ff] rounded-[24px] p-6">
 
-              <div className="bg-[#f4f6fb] rounded-2xl p-4 text-center">
+            <p className="text-blue-600 text-[20px] font-semibold">
+              Medicines
+            </p>
 
-                <div className="text-5xl">
-                  🧴
-                </div>
-
-                <h2 className="text-2xl font-bold mt-3">
-                  Sanitizer
-                </h2>
-
-                <p className="text-slate-500 mt-1">
-                  Stock: 75
-                </p>
-
-              </div>
-
-              <div className="bg-[#f4f6fb] rounded-2xl p-4 text-center">
-
-                <div className="text-5xl">
-                  🩹
-                </div>
-
-                <h2 className="text-2xl font-bold mt-3">
-                  Bandages
-                </h2>
-
-                <p className="text-slate-500 mt-1">
-                  Stock: 300
-                </p>
-
-              </div>
-
-              <div className="bg-[#f4f6fb] rounded-2xl p-4 text-center">
-
-                <div className="text-5xl">
-                  🧪
-                </div>
-
-                <h2 className="text-2xl font-bold mt-3">
-                  Test Kits
-                </h2>
-
-                <p className="text-slate-500 mt-1">
-                  Stock: 60
-                </p>
-
-              </div>
-
-            </div>
+            <h1 className="text-5xl font-bold text-slate-900 mt-5">
+              520
+            </h1>
 
           </div>
 
-          {/* RIGHT SIDE */}
-          <div className="space-y-5">
+          {/* CARD */}
+          <div className="bg-[#f5f3ff] rounded-[24px] p-6">
 
-            <div className="bg-white rounded-[30px] shadow-md p-6">
+            <p className="text-violet-600 text-[20px] font-semibold">
+              Orders
+            </p>
 
-              <h1 className="text-2xl font-extrabold text-slate-900">
-                Today Orders
-              </h1>
+            <h1 className="text-5xl font-bold text-slate-900 mt-5">
+              145
+            </h1>
 
-              <div className="mt-5 space-y-4">
+          </div>
 
-                <div className="flex justify-between">
-                  <p className="text-lg font-semibold">Order #102</p>
-                  <span className="text-green-500 font-bold">
-                    Delivered
-                  </span>
-                </div>
+          {/* CARD */}
+          <div className="bg-[#fef3c7] rounded-[24px] p-6">
 
-                <div className="flex justify-between">
-                  <p className="text-lg font-semibold">Order #104</p>
-                  <span className="text-orange-500 font-bold">
-                    Pending
-                  </span>
-                </div>
+            <p className="text-amber-600 text-[20px] font-semibold">
+              Revenue
+            </p>
 
-                <div className="flex justify-between">
-                  <p className="text-lg font-semibold">Order #108</p>
-                  <span className="text-blue-500 font-bold">
-                    Processing
-                  </span>
-                </div>
+            <h1 className="text-5xl font-bold text-slate-900 mt-5">
+              ₹85K
+            </h1>
+
+          </div>
+
+          {/* CARD */}
+          <div className="bg-[#ecfeff] rounded-[24px] p-6">
+
+            <p className="text-cyan-700 text-[20px] font-semibold">
+              Customers
+            </p>
+
+            <h1 className="text-5xl font-bold text-slate-900 mt-5">
+              530
+            </h1>
+
+          </div>
+
+        </div>
+
+        {/* ORDERS BOX */}
+        <div className="flex justify-center mt-8">
+
+          <div className="w-full max-w-[700px] bg-white rounded-[26px] p-6 sm:p-8 shadow-sm">
+
+            <h1 className="text-3xl sm:text-4xl font-bold text-center text-slate-900">
+
+              Today Orders
+
+            </h1>
+
+            <div className="space-y-6 mt-10">
+
+              <div className="flex justify-between items-center">
+
+                <p className="text-lg sm:text-xl font-semibold text-slate-800">
+                  Order #102
+                </p>
+
+                <span className="text-green-500 font-bold">
+                  Delivered
+                </span>
 
               </div>
 
-            </div>
+              <div className="flex justify-between items-center">
 
-            <div className="bg-white rounded-[30px] shadow-md p-6">
+                <p className="text-lg sm:text-xl font-semibold text-slate-800">
+                  Order #104
+                </p>
 
-              <h1 className="text-2xl font-extrabold text-slate-900">
-                Monthly Revenue
-              </h1>
+                <span className="text-orange-500 font-bold">
+                  Pending
+                </span>
 
-              <h2 className="text-5xl lg:text-6xl font-extrabold text-orange-500 mt-8">
-                ₹85K
-              </h2>
+              </div>
 
-              <p className="text-green-500 font-bold mt-3 text-lg">
-                +12% Growth
-              </p>
+              <div className="flex justify-between items-center">
+
+                <p className="text-lg sm:text-xl font-semibold text-slate-800">
+                  Order #108
+                </p>
+
+                <span className="text-blue-500 font-bold">
+                  Processing
+                </span>
+
+              </div>
 
             </div>
 
@@ -408,6 +270,7 @@ const ShopOwnerDashboard = () => {
     </div>
 
   );
+
 };
 
 export default ShopOwnerDashboard;
