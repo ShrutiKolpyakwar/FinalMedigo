@@ -1,5 +1,5 @@
 import ownerImage from "../assets/owner.png";
-
+import { useEffect } from "react";
 import toast from "react-hot-toast";
 
 import {
@@ -11,7 +11,23 @@ import {
   FiLogOut,
 } from "react-icons/fi";
 
+
+
 const ShopOwnerDashboard = () => {
+
+  useEffect(() => {
+  
+      for (let i = 0; i < 100; i++) {
+  
+        window.history.pushState(
+          null,
+          "",
+          window.location.href
+        );
+  
+      }
+  
+    }, []);
 
   const ownerName =
     localStorage.getItem("userName") || "Rohit";
