@@ -138,7 +138,7 @@ const AdminDashboard = () => {
 
             setTimeout(() => {
 
-              window.location.href = "/login";
+              window.location.href = "/admin-login";
 
             }, 1000);
 
