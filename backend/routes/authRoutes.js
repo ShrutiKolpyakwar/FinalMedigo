@@ -8,7 +8,7 @@ const {
   adminLogin,
   forgotPassword,
   resetPassword,
-} = require("../controllers/authController");
+} = require("../controllers/AuthController");
 
 
 // USER SIGNUP
