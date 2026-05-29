@@ -4,20 +4,19 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-20 px-5 md:px-16 py-6 md:py-4 bg-gray-100 min-h-screen md:h-[calc(100vh-80px)]">
+   <section className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20 px-5 md:px-16 py-8 bg-gray-100 min-h-[120vh] md:min-h-screen">
 
       {/* LEFT SECTION */}
-      <div className="flex flex-col items-center text-center">
+      <div className="flex flex-col items-center text-center w-full">
 
-        <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-slate-800 leading-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-7xl font-bold text-slate-800 leading-tight">
           Your Health, Our Priority
         </h1>
 
-        <p className="mt-5 text-base sm:text-xl md:text-2xl text-gray-600 leading-relaxed max-w-[850px]">
+        <p className="mt-5 text-base sm:text-lg md:text-2xl text-gray-600 leading-relaxed max-w-[850px]">
           Book appointments, consult doctors, and manage healthcare easily with MediGo
         </p>
 
-        {/* BUTTON */}
         <div className="mt-7">
           <Link to="/getstarted">
             <HeroButton text="Get Started" />
@@ -25,7 +24,7 @@ const Hero = () => {
         </div>
 
         {/* SERVICES CARD */}
-        <div className="mt-8 bg-white px-6 md:px-8 py-6 rounded-3xl shadow-lg flex flex-col items-center w-full max-w-[360px]">
+        <div className="mt-8 bg-white px-6 md:px-8 py-6 rounded-3xl shadow-lg flex flex-col items-center w-full max-w-[320px] md:max-w-[360px]">
 
           <h2 className="text-2xl md:text-5xl font-bold text-slate-700 mb-6">
             Our Services
@@ -41,12 +40,18 @@ const Hero = () => {
       </div>
 
       {/* RIGHT SECTION */}
-      <div className="flex justify-center items-center mt-4 md:mt-0 pb-6 md:pb-0">
+      <div className="flex justify-center items-center w-full pb-8">
 
         <img
           src={doctorImage}
           alt="doctor"
-          className="w-[160px] sm:w-[220px] md:w-[360px] h-auto object-contain"
+          className="
+            w-[180px]
+            sm:w-[240px]
+            md:w-[360px]
+            h-auto
+            object-contain
+          "
         />
 
       </div>
